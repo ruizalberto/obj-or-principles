@@ -242,13 +242,33 @@ public class MyMain {
 		// COMPLETE YOUR CODE HERE
 		//----------------------------
 
-
-
+		if (n>9){
+			int power = findingDigitLength(n);
+			while (power > 0) {
+				res += n/power;
+				n %= power;
+				power /= 10;
+			}
+		}
+		
 		//----------------------------
 
-		return res;
+		if (res>9){
+			return ex8(res);
+		} else {
+			return res;
+		}
 	}
 
+	/* Help function for ex8 */
+	private static int findingDigitLength(int number){
+        int power = 1;
+        while (power <= number){
+            power*=10;
+        }
+        power /= 10;
+        return power;
+    }
 	/**
 	 * This function is used to test the exam functions.
 	 */
