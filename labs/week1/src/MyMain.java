@@ -191,7 +191,18 @@ public class MyMain {
 		// COMPLETE YOUR CODE HERE
 		//----------------------------
 
-
+        char ch;
+        			
+		for (int i=0; i<s.length(); i++)
+		{
+			ch= s.charAt(i);
+			if (Character.toUpperCase(ch)==ch){
+				ch = Character.toLowerCase(ch);
+			} else {
+				ch = Character.toUpperCase(ch);
+			}
+			res= ch+res; //adds each character in front of the existing string
+		}
 
 		//----------------------------
 
