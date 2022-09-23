@@ -20,7 +20,7 @@ public class MyMain {
 		// COMPLETE YOUR CODE HERE
 		//----------------------------
 
-
+		System.out.println("Alberto Ruiz");
 
 		//----------------------------
 	}
@@ -43,7 +43,7 @@ public class MyMain {
 		// COMPLETE YOUR CODE HERE
 		//----------------------------
 
-
+		res = Math.log10(b)/Math.log10(a);
 
 		//----------------------------
 
