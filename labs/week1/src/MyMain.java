@@ -165,7 +165,9 @@ public class MyMain {
 		// COMPLETE YOUR CODE HERE
 		//----------------------------
 
-
+		for (int i = 1; i<n+1; i++){
+			System.out.println("*".repeat(i));
+		}
 
 		//----------------------------
 	}
