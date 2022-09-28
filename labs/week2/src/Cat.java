@@ -46,8 +46,8 @@ public class Cat {
     //---------------------------------------
 
     public boolean isPayingAttention(){
-        int N = 1;
-        int M = 3;
+        int M = 1;
+        int N = 3;
         int valorEntero = (int) Math.floor(Math.random()*(N-M+1)+M);
 
         if (valorEntero==3){

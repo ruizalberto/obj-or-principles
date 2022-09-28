@@ -63,6 +63,6 @@ public class Dog {
     }
 
     public void bark(int happinessLevel){
-        System.out.println("woof".repeat(happinessLevel));
+        System.out.println("woof ".repeat(happinessLevel));
     }
 }
