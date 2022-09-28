@@ -5,14 +5,17 @@ public class Cat {
     //	Fields
     //---------------------------------------
 
-
-
+    String name;
+    int playfulLevel;
 
     //---------------------------------------
     //	Constructor
     //---------------------------------------
 
-
+    public Cat(String myName, int myPlayfulLevel){
+        this.name = myName;
+        this.playfulLevel = myPlayfulLevel;
+    }
 
 
     //---------------------------------------
