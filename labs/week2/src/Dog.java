@@ -23,19 +23,46 @@ public class Dog {
     //	Get Methods
     //---------------------------------------
 
+    public int getBoldnessLevel() {
+        return boldnessLevel;
+    }
 
+    public String getBreed() {
+        return breed;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     //---------------------------------------
     //	Set Methods
     //---------------------------------------
 
+    public void setBoldnessLevel(int boldnessLevel) {
+        this.boldnessLevel = boldnessLevel;
+    }
 
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     //---------------------------------------
     //	Extra Functionality
     //---------------------------------------
 
 
+    public void increaseBoldnessLevel(){
+        if (this.boldnessLevel != 10){
+            this.boldnessLevel++;
+        }
+    }
 
-
+    public void bark(int happinessLevel){
+        System.out.println("woof".repeat(happinessLevel));
+    }
 }
