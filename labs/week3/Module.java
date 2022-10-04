@@ -73,7 +73,7 @@ public class Module {
         int count = 0;
         for (int i=0 ; i<this.title.length(); i++){
             char ch = this.title.charAt(i);
-            if(ch == 'a'|| ch == 'e'|| ch == 'i' ||ch == 'o' ||ch == 'u'){
+            if(Character.toString(ch).matches("[AEIOaeiou]")){
                count++;
             }
          }
