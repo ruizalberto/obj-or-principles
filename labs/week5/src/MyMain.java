@@ -232,7 +232,7 @@ public class MyMain {
 	 */
 	public static void main(String[] args) {
 		// 1. We parse any input arguments
-		int option = 1;
+		int option = 2;
 
 		// 2. We call to the method we want to try
 		switch (option) {
