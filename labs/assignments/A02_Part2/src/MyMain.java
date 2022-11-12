@@ -193,7 +193,7 @@ public class MyMain {
 	 */
 	public static void main(String[] args) {
 		// 1. We parse any parameter in
-		int option = 3;
+		int option = 4;
 
 		// 2. We call to the method we want to try
 		switch (option) {
