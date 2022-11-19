@@ -6,6 +6,7 @@ public class Shop {
     private ArrayList<Order> currentOrders;
     private ArrayList<Order> pastOrders;
     private ArrayList<Customer> customerList;
+    private Menu shopMenu;
 
     // Constructors
     public Shop(String _address){
@@ -13,6 +14,7 @@ public class Shop {
         this.currentOrders = new ArrayList<Order>();
         this.pastOrders = new ArrayList<Order>();
         this.customerList = new ArrayList<Customer>();
+        this.shopMenu = new Menu();
     }
 
     // GET Methods
@@ -53,5 +55,8 @@ public class Shop {
     public void orderCompleted(Order _orderCompleted){
         this.pastOrders.add(_orderCompleted);
         this.currentOrders.remove(_orderCompleted);
+    }
+    public void showMenu(){
+        this.shopMenu.displayMenu();
     }
 }

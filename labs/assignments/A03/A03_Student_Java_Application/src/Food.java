@@ -3,20 +3,23 @@ import java.util.UUID;
 
 public class Food {
     // Fields
-    private String foodID;
+    private String foodID,
+    name;
     private LocalDate bestBefore;
     private int price;
-    private int quantity;
-
+    
     // Constructors
-    public Food(int _quantity){
+    public Food(String _name, int _price){
+        this.name = _name;
         this.foodID = UUID.randomUUID().toString();
         this.bestBefore = java.time.LocalDate.now().plusDays(7);
-        this.price = 30;
-        this.quantity = _quantity;
+        this.price = _price;
     }
 
     // GET Methods
+    public String getName() {
+        return this.name;
+    }
     public LocalDate getBestBefore() {
         return this.bestBefore;
     }
@@ -29,8 +32,14 @@ public class Food {
     public int getQuantity() {
         return this.quantity;
     }
+    public boolean getKeepInFridge(){
+        return this.keepInFridge;
+    }
 
     // SET Methods
+    public void setName(String name) {
+        this.name = name;
+    }
     public void setBestBefore(LocalDate bestBefore) {
         this.bestBefore = bestBefore;
     }
