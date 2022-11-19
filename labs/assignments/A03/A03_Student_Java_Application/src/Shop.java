@@ -5,4 +5,5 @@ public class Shop {
     private String address;
     private ArrayList<Order> currentOrders;
     private ArrayList<Order> pastOrders;
+    private ArrayList<Customer> customerList;
 }

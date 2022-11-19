@@ -2,10 +2,10 @@ import java.sql.Date;
 
 import javax.xml.crypto.Data;
 
-public abstract class Food {
+public class Food {
     // Fields
+    private String name;
     private Date bestBefore;
-    private int carbs;
-    private int protein;
-    private int fat;
+    private int price;
+    private int quantity;
 }
