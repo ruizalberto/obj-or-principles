@@ -6,7 +6,6 @@ public class Order {
     private String orderID;
     private String customerID;
     private ArrayList<Food> buyList;
-    private int totalPrice;
 
     // Constructors
     public Order(String _customerID, ArrayList<Food> _buyList){
@@ -25,11 +24,6 @@ public class Order {
     public String getOrderID() {
         return this.orderID;
     }
-    public int getTotalPrice() {
-        for (Food item: this.buyList){
-            item.
-        }
-    }
 
     // SET Methods
     public void setBuyList(ArrayList<Food> buyList) {
@@ -45,5 +39,13 @@ public class Order {
     // EXTRA Methods
     public void extraItems(Food _extraFood){
         this.buyList.add(_extraFood);
+    }
+
+    public int getTotalPrice() {
+        int totalAmount = 0;
+        for (Food item: this.buyList){
+            totalAmount += item.getPrice() + item.getQuantity();
+        }
+        return totalAmount;
     }
 }
