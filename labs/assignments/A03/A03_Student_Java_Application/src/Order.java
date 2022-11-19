@@ -13,4 +13,31 @@ public class Order {
         this.customerID = _customerID;
         this.buyList = _buyList;
     }
+
+    // GET Methods
+    public ArrayList<Food> getBuyList() {
+        return this.buyList;
+    }
+    public String getCustomerID() {
+        return this.customerID;
+    }
+    public String getOrderID() {
+        return this.orderID;
+    }
+
+    // SET Methods
+    public void setBuyList(ArrayList<Food> buyList) {
+        this.buyList = buyList;
+    }
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
+    }
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
+    }
+
+    // EXTRA Methods
+    public void extraItems(Food _extraFood){
+        this.buyList.add(_extraFood);
+    }
 }

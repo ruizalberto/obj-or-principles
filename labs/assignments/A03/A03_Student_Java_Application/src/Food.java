@@ -8,4 +8,6 @@ public class Food {
     private Date bestBefore;
     private int price;
     private int quantity;
+
+    // Const
 }
