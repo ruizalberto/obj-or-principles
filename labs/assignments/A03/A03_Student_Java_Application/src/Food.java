@@ -46,6 +46,6 @@ public class Food {
 
     // EXTRA Methods
     public int getTotalPrice(){
-        return this.price+this.quantity;
+        return this.price*this.quantity;
     }
 }

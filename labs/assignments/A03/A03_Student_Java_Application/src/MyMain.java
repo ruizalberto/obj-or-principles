@@ -13,5 +13,7 @@ public class MyMain {
         listaCompra.add(fish);
         Order albertoOrder = new Order(alberto.getCustomerID(), listaCompra);
         buymie.addOrder(albertoOrder);
+        int total = buymie.getCurrentOrders().get(0).getTotalPrice();
+        System.out.println(total);
     }
 }
