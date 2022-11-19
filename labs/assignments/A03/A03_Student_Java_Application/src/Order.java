@@ -6,6 +6,7 @@ public class Order {
     private String orderID;
     private String customerID;
     private ArrayList<Food> buyList;
+    private int totalPrice;
 
     // Constructors
     public Order(String _customerID, ArrayList<Food> _buyList){
@@ -23,6 +24,11 @@ public class Order {
     }
     public String getOrderID() {
         return this.orderID;
+    }
+    public int getTotalPrice() {
+        for (Food item: this.buyList){
+            item.
+        }
     }
 
     // SET Methods
