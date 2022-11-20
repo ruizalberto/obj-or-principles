@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class MyMain {
     public static void printMenu(){
@@ -15,6 +16,47 @@ public class MyMain {
 		System.out.print("7. Display Shop Food Menu\n");
 		System.out.print("8. Create New Order\n");
 		System.out.println("\n\n");
+	}
+
+    public static int selectOption(Scanner sc, int lb, int ub){
+
+		int res = -1;
+		boolean validOption = false;
+		while (!validOption) {
+			System.out.println("Please enter an integer value within the range " + lb + " and " + ub );
+			try {
+				res = sc.nextInt();
+				sc.nextLine();
+				if ((res >= lb) && (res <= ub)){
+                    validOption = true;
+                } else {
+					System.out.println("Sorry but the option must be within the range " + lb + " and " + ub);
+                }
+			}
+			catch (Exception e) {
+				System.out.println("Sorry you did not enter an integer and then press the return key");
+				sc.next();
+			}
+		}
+		return res;
+	}
+
+    public static int selectIntOption(Scanner sc){
+		int res = -1;
+		boolean validOption = false;
+		while (!validOption) {
+			System.out.println("Please enter an integer value");
+			try {
+				res = sc.nextInt();
+				sc.nextLine();
+				validOption = true;
+			}
+			catch (Exception e) {
+				System.out.println("Sorry you did not enter an integer and then press the return key");
+				sc.next();
+			}
+		}
+		return res;
 	}
 
     public static void main(String[] args) {
