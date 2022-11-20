@@ -79,7 +79,6 @@ public class MyMain {
     public static void interactiveMenu() {
         Shop buymie = new Shop();
 
-		// 2. We create some auxiliary variables
 		boolean finish = false;
 		int option;
 		Scanner sc = new Scanner(System.in);
@@ -138,14 +137,24 @@ public class MyMain {
 				}
 
 				case 3 -> {
-					// I. We print the message
-					System.out.println("---------------\n3. Display User Info\n---------------");
+					System.out.println("---------------\n3. Create New Order\n---------------");
 
-					// II. We ask for the user input to identify the user to be removed
-					System.out.println("Please enter the id for the user to be displayed");
-					myInt = selectIntOption(sc);
+					Menu menu = new Menu();
+                    Food meat = new Food("Sirloin Steak", 5);
+                    Food fish = new Food("Hake Fillets", 5);
+                    menu.addFood(meat);
+                    menu.addFood(fish);
 
-					// III. We attempt to display the user info
+                    myInt = -1;
+                    while (myInt!=0){
+                        menu.displayMenu();
+                        System.out.print("Select an item to be ordered (select 0 to finish): ");
+                        myInt = selectIntOption(sc);
+                        while (menu.getMenu().get(myInt) != null){
+                            System.out.print("Select quantity for " + menu.getMenu().get(myInt)+ ": ");
+                            myInt = selectIntOption(sc);
+                        }
+                    }
 				}
 
 				case 4 -> {

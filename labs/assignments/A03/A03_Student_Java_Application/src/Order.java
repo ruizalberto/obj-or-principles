@@ -38,8 +38,8 @@ public class Order {
     }
 
     // EXTRA Methods
-    public void extraItems(Food _extraFood){
-        this.buyList.add(_extraFood);
+    public void addFood(Food _addFood){
+        this.buyList.add(_addFood);
     }
 
     public int getTotalPrice() {
