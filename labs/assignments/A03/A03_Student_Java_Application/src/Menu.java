@@ -27,8 +27,6 @@ public class Menu {
             System.out.print("Price: ");
             System.out.println(item.getPrice());
             System.out.println();
-            System.out.println("***");
-            System.out.println();
         }
     }
     public void addFood(Food _food){
