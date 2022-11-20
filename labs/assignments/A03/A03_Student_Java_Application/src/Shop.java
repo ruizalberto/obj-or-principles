@@ -9,8 +9,7 @@ public class Shop {
     private Menu shopMenu;
 
     // Constructors
-    public Shop(String _address){
-        this.address = _address;
+    public Shop(){
         this.currentOrders = new ArrayList<Order>();
         this.pastOrders = new ArrayList<Order>();
         this.customerList = new ArrayList<Customer>();
