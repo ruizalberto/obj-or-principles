@@ -1,6 +1,22 @@
 import java.util.ArrayList;
 
 public class MyMain {
+    public static void printMenu(){
+		System.out.print("------------------------------------\n");
+		System.out.print("			    MENU			  	  \n");
+		System.out.print("------------------------------------\n");
+		System.out.print("0. Exit\n");
+		System.out.print("1. Add Customer\n");
+		System.out.print("2. Remove Customer\n");
+		System.out.print("3. Display User Order History\n");
+		System.out.print("4. Add Food Item\n");
+		System.out.print("5. Remove Food Item\n");
+		System.out.print("6. Display Food Item Info\n");
+		System.out.print("7. Display Shop Food Menu\n");
+		System.out.print("8. Create New Order\n");
+		System.out.println("\n\n");
+	}
+
     public static void main(String[] args) {
         // test the functionality of the project
         Shop buymie = new Shop("Cork County, Model Farm Road");
