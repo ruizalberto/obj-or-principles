@@ -21,6 +21,7 @@ public class Menu {
 
     // EXTRA Methods
     public void displayMenu(){
+        System.out.println();
         System.out.println(java.time.LocalDate.now().toString()+"'s Menu");
         for(Food item: this.menu){
             System.out.println("--- "+item.getName()+" ---");

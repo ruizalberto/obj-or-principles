@@ -3,9 +3,10 @@ import java.util.Scanner;
 
 public class MyMain {
     public static void printMenu(){
-		System.out.print("------------------------------------\n");
-		System.out.print("			    MENU			  	  \n");
-		System.out.print("------------------------------------\n");
+        System.out.println();
+		System.out.print("----------------\n");
+		System.out.print("     MENU			  	  \n");
+		System.out.print("----------------\n");
 		System.out.print("0. Exit\n");
 		System.out.print("1. Add Customer\n");
 		System.out.print("2. Display Customer Order History\n");
@@ -14,7 +15,7 @@ public class MyMain {
 		System.out.print("5. Display Food Item Info\n");
 		System.out.print("6. Display Shop Food Menu\n");
 		System.out.print("7. Add Food Item\n");
-		System.out.println("\n\n");
+		System.out.println("");
 	}
 
     public static int selectOption(Scanner sc, int min, int max){
@@ -22,7 +23,7 @@ public class MyMain {
 		int res = -1;
 		boolean validOption = false;
 		while (!validOption) {
-			System.out.println("Please enter an integer value within the range " + min + " and " + max );
+			System.out.print("Please enter an integer value within the range " + min + " and " + max + ": ");
 			try {
 				res = sc.nextInt();
 				sc.nextLine();
@@ -91,6 +92,7 @@ public class MyMain {
 		while (!finish){
 			printMenu();
             option = selectOption(sc, 0, 7);
+            System.out.println();
 			switch (option) {
 				case 0 -> finish = true;
 
@@ -116,6 +118,7 @@ public class MyMain {
                     boolean found = false;
                     for (Customer customers: buymie.getCustomerList()){
                         if (customers.getName().equals(myStr)){
+                            System.out.println();
                             System.out.println("Customer found!");
                             found = true;
                             for (Order pastOrders: customers.getPastOrders()){
@@ -153,7 +156,9 @@ public class MyMain {
                     boolean found = false;
                     for (Customer customers: buymie.getCustomerList()){
                         if (customers.getName().equals(myStr)){
+                            System.out.println();
                             System.out.println("Customer found!");
+                            System.out.println();
                             found = true;
                             newOrder = new Order(customers.getCustomerID(), new ArrayList<Food>());
                             break;
@@ -182,7 +187,7 @@ public class MyMain {
                                 }
                             }
                         }
-                        System.out.print("Total Amount of the Order: "+newOrder.getTotalPrice()+"€");
+                        System.out.println("Total Amount of the Order: "+newOrder.getTotalPrice()+"€");
                         buymie.addOrder(newOrder);
                     }
 				}
