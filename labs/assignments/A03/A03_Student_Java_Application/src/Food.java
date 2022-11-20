@@ -6,7 +6,8 @@ public class Food {
     private String foodID,
     name;
     private LocalDate bestBefore;
-    private int price;
+    private int price,
+    quantity;
     
     // Constructors
     public Food(String _name, int _price){
@@ -29,6 +30,9 @@ public class Food {
     public int getPrice() {
         return this.price;
     }
+    public int getQuantity() {
+        return this.quantity;
+    }
 
     // SET Methods
     public void setName(String name) {
@@ -43,9 +47,9 @@ public class Food {
     public void setPrice(int price) {
         this.price = price;
     }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     // EXTRA Methods
-    public int getTotalPrice(int _quantity){
-        return this.price*_quantity;
-    }
 }

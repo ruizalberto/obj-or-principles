@@ -13,7 +13,9 @@ public class MyMain {
         buymie.addCustomer(alberto);
         ArrayList<Food> listaCompra = new ArrayList<>();
         listaCompra.add(meat);
+        meat.setQuantity(4);
         listaCompra.add(fish);
+        fish.setQuantity(4);
         Order albertoOrder = new Order(alberto.getCustomerID(), listaCompra);
         buymie.addOrder(albertoOrder);
         int total = buymie.getCurrentOrders().get(0).getTotalPrice();

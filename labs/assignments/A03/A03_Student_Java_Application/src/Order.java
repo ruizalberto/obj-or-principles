@@ -45,7 +45,7 @@ public class Order {
     public int getTotalPrice() {
         int totalAmount = 0;
         for (Food item: this.buyList){
-            totalAmount += item.getTotalPrice();
+            totalAmount += item.getPrice()*item.getQuantity();
         }
         return totalAmount+DELIVERY_FEE;
     }
