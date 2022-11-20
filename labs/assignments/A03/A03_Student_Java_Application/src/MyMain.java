@@ -41,47 +41,37 @@ public class MyMain {
 		return res;
 	}
 
-    public static void interactiveMenu() {
+    public static int selectIntOption(Scanner sc){
+		int res = -1;
+		boolean validOption = false;
+		while (!validOption) {
+			System.out.println("Please enter an integer value");
+			try {
+				res = sc.nextInt();
+				sc.nextLine();
+				validOption = true;
+			}
+			catch (Exception e) {
+				System.out.println("Sorry you did not enter an integer and then press the return key");
+				sc.next();
+			}
+		}
+		return res;
+	}
 
-		//1. We create the library database manager object
-		Library l = new LibraryImp(maxBorrowItems);
+    public static void interactiveMenu() {
+        Shop buymie = new Shop();
 
 		// 2. We create some auxiliary variables
 		boolean finish = false;
 		int option;
 		Scanner sc = new Scanner(System.in);
 
-		//3. While the user wants to continue the session
+        String myStr;
+
 		while (!finish){
-			//3.1. We clean the screen
-			for (int i = 0; i < 100; i++)
-				System.out.println("\n");
-
-			// 3.2. We print the menu
 			printMenu();
-
-			// 3.3. We ask for an option
-			option = selectOption(sc,
-					              	 0,
-					              	 15
-			                        );
-
-			//3.4. We clean the screen again
-			for (int i = 0; i < 100; i++)
-				System.out.println("\n");
-
-			// 3.5. We create a few auxiliary variables
-			String myStr;
-			String myStr2;
-			String myStr3;
-
-			int myInt;
-			int myInt2;
-			int myInt3;
-
-			boolean myBool;
-
-			// 3.5. We perform the action
+            option = selectOption(sc, 0, 15);
 			switch (option) {
 				case 0 -> finish = true;
 
@@ -90,7 +80,7 @@ public class MyMain {
 					System.out.println("---------------\n1. Add User\n---------------");
 
 					// II. We ask for the user input to define the user
-					System.out.println("Please enter the name for the new user");
+					System.out.print("Please enter the name for the new user: ");
 					myStr = selectStringOption(sc);
 
 					// III. We attempt to add the user
@@ -232,7 +222,7 @@ public class MyMain {
 
     public static void main(String[] args) {
         // test the functionality of the project
-        Shop buymie = new Shop("Cork County, Model Farm Road");
+        Shop buymie = new Shop();
         Menu menu = new Menu();
         Food meat = new Food("Sirloin Steak", 5);
         Food fish = new Food("Hake Fillets", 5);

@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Shop {
     // Fields
-    private String address;
     private ArrayList<Order> currentOrders;
     private ArrayList<Order> pastOrders;
     private ArrayList<Customer> customerList;
@@ -17,9 +16,6 @@ public class Shop {
     }
 
     // GET Methods
-    public String getAddress() {
-        return this.address;
-    }
     public ArrayList<Order> getCurrentOrders() {
         return this.currentOrders;
     }
@@ -31,9 +27,6 @@ public class Shop {
     }
 
     // SET Methods
-    public void setAddress(String address) {
-        this.address = address;
-    }
     public void setCurrentOrders(ArrayList<Order> currentOrders) {
         this.currentOrders = currentOrders;
     }
