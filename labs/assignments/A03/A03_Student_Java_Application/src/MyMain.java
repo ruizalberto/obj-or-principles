@@ -8,13 +8,12 @@ public class MyMain {
 		System.out.print("------------------------------------\n");
 		System.out.print("0. Exit\n");
 		System.out.print("1. Add Customer\n");
-		System.out.print("2. Remove Customer\n");
-		System.out.print("3. Display User Order History\n");
-		System.out.print("4. Add Food Item\n");
-		System.out.print("5. Remove Food Item\n");
-		System.out.print("6. Display Food Item Info\n");
-		System.out.print("7. Display Shop Food Menu\n");
-		System.out.print("8. Create New Order\n");
+		System.out.print("2. Display Customer Order History\n");
+		System.out.print("3. Add Food Item\n");
+		System.out.print("4. Remove Food Item\n");
+		System.out.print("5. Display Food Item Info\n");
+		System.out.print("6. Display Shop Food Menu\n");
+		System.out.print("7. Create New Order\n");
 		System.out.println("\n\n");
 	}
 
@@ -59,6 +58,26 @@ public class MyMain {
 		return res;
 	}
 
+    public static String selectStringOption(Scanner sc){
+		String res = "";
+		boolean validOption = false;
+		while (!validOption) {
+			System.out.println("Please enter a String");
+			try {
+				res = sc.nextLine();
+				if ((res.length() > 0) && (res.charAt(0) >= 'A') && (res.charAt(0) <= 'Z'))
+					validOption = true;
+				else
+					System.out.println("Sorry but the option must be a non-empty string starting by a capital letter");
+			}
+			catch (Exception e) {
+				System.out.println("Sorry you did not enter a String and then press the return key");
+				sc.next();
+			}
+		}
+		return res;
+	}
+
     public static void interactiveMenu() {
         Shop buymie = new Shop();
 
@@ -67,39 +86,52 @@ public class MyMain {
 		int option;
 		Scanner sc = new Scanner(System.in);
 
-        String myStr;
+        String myStr,
+        myStr2;
+        int myInt;
 
 		while (!finish){
 			printMenu();
-            option = selectOption(sc, 0, 15);
+            option = selectOption(sc, 0, 7);
 			switch (option) {
 				case 0 -> finish = true;
 
 				case 1 -> {
-					// I. We print the message
-					System.out.println("---------------\n1. Add User\n---------------");
+					System.out.println("---------------\n1. Add Customer\n---------------");
 
-					// II. We ask for the user input to define the user
-					System.out.print("Please enter the name for the new user: ");
+					System.out.print("Please enter the name for the new customer: ");
 					myStr = selectStringOption(sc);
+                    System.out.print("Please enter the address for the new customer: ");
+					myStr2 = selectStringOption(sc);
 
-					// III. We attempt to add the user
-					myInt = l.addUser(myStr);
+                    Customer newCustomer = new Customer(myStr, myStr2);
 
-					// IV. We inform of the success of the operation
-					System.out.println("New user with id " + myInt + " successfully created");
+					buymie.addCustomer(newCustomer);
 				}
 
 				case 2 -> {
-					// I. We print the message
-					System.out.println("---------------\n2. Remove User\n---------------");
+					System.out.println("---------------\n2. Display Customer Order History\n---------------");
 
-					// II. We ask for the user input to identify the user to be removed
-					System.out.println("Please enter the id for the user to be removed");
-					myInt = selectIntOption(sc);
+                    System.out.print("Please enter the name for the customer to display order history: ");
+					myStr = selectStringOption(sc);
 
-					// III. We attempt to remove the user
-					myInt = l.removeUser(myInt);
+                    for (Customer customers: buymie.getCustomerList()){
+                        if (customers.getName().equals(myStr)){
+                            System.out.println("Customer found!");
+                            for (Order pastOrders: customers.getPastOrders()){
+                                System.out.print("Order ID:");
+                                System.out.println(pastOrders.getOrderID());
+                                int counter = 1;
+                                for (Food foodList: pastOrders.getBuyList()){
+                                    System.out.print("Item "+counter+":");
+                                    System.out.println(foodList.getName());
+                                    counter++;
+                                }
+                            }
+                            break;
+                        }
+                    }
+
 
 					// IV. We inform of the success of the operation
 					if (myInt == -1)
@@ -203,18 +235,6 @@ public class MyMain {
 						System.out.println("Sorry, no item is registered with id = " + myInt + " so the remove operation can not proceed.");
 					} else
 						System.out.println("Item with id = " + myInt + " successfully removed");
-				}
-
-				case 8 -> {
-					// I. We print the message
-					System.out.println("---------------\n8. Display Item Info\n---------------");
-
-					// II. We ask for the user input to identify the item to be displayed
-					System.out.println("Please enter the id for the item to be displayed");
-					myInt = selectIntOption(sc);
-
-					// III. We attempt to display the user info
-					l.displayItemInfo(myInt);
 				}
             }
         }

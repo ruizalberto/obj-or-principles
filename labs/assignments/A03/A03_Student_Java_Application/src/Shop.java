@@ -41,13 +41,20 @@ public class Shop {
     public void addOrder(Order _addOrder){
         this.currentOrders.add(_addOrder);
     }
+    
     public void addCustomer(Customer _addCustomer){
         this.customerList.add(_addCustomer);
     }
+
+    public void removeCustomer(Customer _addCustomer){
+        this.customerList.remove(_addCustomer);
+    }
+
     public void orderCompleted(Order _orderCompleted){
         this.pastOrders.add(_orderCompleted);
         this.currentOrders.remove(_orderCompleted);
     }
+
     public void showMenu(){
         this.shopMenu.displayMenu();
     }
