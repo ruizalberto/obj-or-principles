@@ -44,7 +44,6 @@ public class MyMain {
 		int res = -1;
 		boolean validOption = false;
 		while (!validOption) {
-			System.out.println("Please enter an integer value");
 			try {
 				res = sc.nextInt();
 				sc.nextLine();
@@ -62,7 +61,6 @@ public class MyMain {
 		String res = "";
 		boolean validOption = false;
 		while (!validOption) {
-			System.out.println("Please enter a String");
 			try {
 				res = sc.nextLine();
 				if ((res.length() > 0) && (res.charAt(0) >= 'A') && (res.charAt(0) <= 'Z'))
