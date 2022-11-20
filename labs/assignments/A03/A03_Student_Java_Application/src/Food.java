@@ -29,12 +29,6 @@ public class Food {
     public int getPrice() {
         return this.price;
     }
-    public int getQuantity() {
-        return this.quantity;
-    }
-    public boolean getKeepInFridge(){
-        return this.keepInFridge;
-    }
 
     // SET Methods
     public void setName(String name) {
@@ -49,12 +43,9 @@ public class Food {
     public void setPrice(int price) {
         this.price = price;
     }
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
     // EXTRA Methods
-    public int getTotalPrice(){
-        return this.price*this.quantity;
+    public int getTotalPrice(int _quantity){
+        return this.price*_quantity;
     }
 }
