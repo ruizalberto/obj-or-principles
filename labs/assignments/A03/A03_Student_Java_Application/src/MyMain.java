@@ -166,31 +166,35 @@ public class MyMain {
 					Order newOrder = null;
 					Customer customerFound = findCustomer(buymie, myStr);
 					if (customerFound != null){
-						newOrder = new Order(customerFound.getCustomerID(), new ArrayList<Food>());
-						myInt = -1;
-                        while (myInt!=0){
-							buymie.showMenu();
-                            System.out.print("Select an item to be ordered (select 0 to finish): ");
-                            myInt = selectIntOption(sc);
-                            while (myInt-1 >= buymie.getShopMenu().getMenu().size()){
-                                System.out.println("Wrong value!");
-                                System.out.print("Select an item to be ordered (select 0 to finish): ");
-                                myInt = selectIntOption(sc);
-                            }
-                            if (myInt != 0){
-                                System.out.print("Select quantity for " + buymie.getShopMenu().getMenu().get(myInt-1).getName()+ ": ");
-                                myInt2 = selectIntOption(sc);
-                                if (newOrder != null){
-                                    Food quantityNewFood = buymie.getShopMenu().getMenu().get(myInt-1);
-                                    quantityNewFood.setQuantity(myInt2);
-                                    newOrder.addFood(quantityNewFood);
-                                }
-                            }
-                        }
-						System.out.println();
-                        System.out.println("Total Amount of the Order: "+newOrder.getTotalPrice()+"€");
-                        buymie.addOrder(newOrder);
-						customerFound.setCurrentOrder(newOrder);
+						if (customerFound.getCurrentOrder()==null){
+							newOrder = new Order(customerFound.getCustomerID(), new ArrayList<Food>());
+							myInt = -1;
+							while (myInt!=0){
+								buymie.showMenu();
+								System.out.print("Select an item to be ordered (select 0 to finish): ");
+								myInt = selectIntOption(sc);
+								while (myInt-1 >= buymie.getShopMenu().getMenu().size()){
+									System.out.println("Wrong value!");
+									System.out.print("Select an item to be ordered (select 0 to finish): ");
+									myInt = selectIntOption(sc);
+								}
+								if (myInt != 0){
+									System.out.print("Select quantity for " + buymie.getShopMenu().getMenu().get(myInt-1).getName()+ ": ");
+									myInt2 = selectIntOption(sc);
+									if (newOrder != null){
+										Food quantityNewFood = buymie.getShopMenu().getMenu().get(myInt-1);
+										quantityNewFood.setQuantity(myInt2);
+										newOrder.addFood(quantityNewFood);
+									}
+								}
+							}
+							System.out.println();
+							System.out.println("Total Amount of the Order: "+newOrder.getTotalPrice()+"€");
+							buymie.addOrder(newOrder);
+							customerFound.setCurrentOrder(newOrder);
+						} else {
+							System.out.println("Sorry, you already have an ongoing order.");
+						}
 					} else {
 						System.out.println();
 						System.out.println("Sorry, no customer is registered with name = "+myStr);
