@@ -58,6 +58,7 @@ public class Customer {
 
     // EXTRA Methods
     public void orderCompleted(Order _orderCompleted){
+        this.currentOrder = null;
         this.pastOrders.add(_orderCompleted);
     }
 }

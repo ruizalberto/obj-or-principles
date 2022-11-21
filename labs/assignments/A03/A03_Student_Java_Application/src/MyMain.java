@@ -78,6 +78,22 @@ public class MyMain {
 		return res;
 	}
 
+	private static Customer findCustomer(Shop buymie, String myStr){
+		for (Customer customers: buymie.getCustomerList()){
+			if (customers.getName().equals(myStr)){
+				System.out.println();
+				System.out.println("Customer found!");
+				return customers;
+			}
+		}
+		return null;
+	}
+
+	private static String enterName(Scanner sc){
+		System.out.print("Please enter the name for the customer: ");
+		return selectStringOption(sc);
+	}
+
     public static void interactiveMenu() {
         Shop buymie = new Shop();
 
@@ -92,7 +108,7 @@ public class MyMain {
 
 		while (!finish){
 			printMenu();
-            option = selectOption(sc, 0, 7);
+            option = selectOption(sc, 0, 8);
             System.out.println();
 			switch (option) {
 				case 0 -> finish = true;
@@ -100,8 +116,7 @@ public class MyMain {
 				case 1 -> {
 					System.out.println("---------------\n1. Add Customer\n---------------");
 
-					System.out.print("Please enter the name for the new customer: ");
-					myStr = selectStringOption(sc);
+					myStr = enterName(sc);
                     System.out.print("Please enter the address for the new customer: ");
 					myStr2 = selectStringOption(sc);
 
@@ -113,32 +128,26 @@ public class MyMain {
 				case 2 -> {
 					System.out.println("---------------\n2. Display Customer Order History\n---------------");
 
-                    System.out.print("Please enter the name for the customer to display order history: ");
-					myStr = selectStringOption(sc);
+					myStr = enterName(sc);
 
-                    boolean found = false;
-                    for (Customer customers: buymie.getCustomerList()){
-                        if (customers.getName().equals(myStr)){
-                            System.out.println();
-                            System.out.println("Customer found!");
-                            found = true;
-                            for (Order pastOrders: customers.getPastOrders()){
-                                System.out.print("Order ID:");
-                                System.out.println(pastOrders.getOrderID());
-                                int counter = 1;
-                                for (Food foodList: pastOrders.getBuyList()){
-                                    System.out.print("Item "+counter+":");
-                                    System.out.println(foodList.getName());
-                                    counter++;
-                                }
-                            }
-                            break;
-                        }
-                    }
-
-                    if (!found){
-                        System.out.println("Sorry, no customer is registered with name = "+myStr);
-                    }
+					Customer customerFound = findCustomer(buymie, myStr);
+					if (customerFound != null){
+						for (Order pastOrders: customerFound.getPastOrders()){
+							System.out.println();
+							System.out.println("----"+myStr+"'s Order----");
+							System.out.println("Order ID: "+pastOrders.getOrderID());
+							int counter = 1;
+							for (Food foodList: pastOrders.getBuyList()){
+								System.out.print("Item "+counter+": ");
+								System.out.println(foodList.getName());
+								counter++;
+							}
+							System.out.println();
+                        	System.out.println("Total Amount of the Order: "+pastOrders.getTotalPrice()+"€");
+						}
+					} else {
+						System.out.println("Sorry, no customer is registered with name = "+myStr);
+					}
 				}
 
 				case 3 -> {
@@ -150,24 +159,13 @@ public class MyMain {
                     menu.addFood(meat);
                     menu.addFood(fish);
 
-                    System.out.print("Please enter the name for the customer to order food: ");
-					myStr = selectStringOption(sc);
-                    Order newOrder = null;
+					myStr = enterName(sc);
 
-                    boolean found = false;
-                    for (Customer customers: buymie.getCustomerList()){
-                        if (customers.getName().equals(myStr)){
-                            System.out.println();
-                            System.out.println("Customer found!");
-                            found = true;
-                            newOrder = new Order(customers.getCustomerID(), new ArrayList<Food>());
-                            break;
-                        }
-                    }
-                    if (!found){
-                        System.out.println("Sorry, no customer is registered with name = "+myStr);
-                    } else {
-                        myInt = -1;
+					Order newOrder = null;
+					Customer customerFound = findCustomer(buymie, myStr);
+					if (customerFound != null){
+						newOrder = new Order(customerFound.getCustomerID(), new ArrayList<Food>());
+						myInt = -1;
                         while (myInt!=0){
                             menu.displayMenu();
                             System.out.print("Select an item to be ordered (select 0 to finish): ");
@@ -187,16 +185,30 @@ public class MyMain {
                                 }
                             }
                         }
+						System.out.println();
                         System.out.println("Total Amount of the Order: "+newOrder.getTotalPrice()+"€");
                         buymie.addOrder(newOrder);
-                    }
+						customerFound.setCurrentOrder(newOrder);
+					} else {
+						System.out.println();
+						System.out.println("Sorry, no customer is registered with name = "+myStr);
+					}
 				}
 
 				case 4 -> {
-					// I. We print the message
-					System.out.println("---------------\n3. Display All User IDs\n---------------");
+					System.out.println("---------------\n4. Complete Order\n---------------");
 
-					// II. We perform the action
+					myStr = enterName(sc);
+					Customer customerFound = findCustomer(buymie, myStr);
+					if (customerFound != null){
+						Order orderCompleted = customerFound.getCurrentOrder();
+						System.out.println(myStr+"'s Order Completed. Order ID: "+orderCompleted.getOrderID());
+						customerFound.orderCompleted(orderCompleted);
+						buymie.orderCompleted(orderCompleted);
+					} else {
+						System.out.println();
+						System.out.println("Sorry, no customer is registered with name = "+myStr);
+					}
 				}
 
 				case 5 -> {
@@ -241,6 +253,19 @@ public class MyMain {
 				}
 
 				case 7 -> {
+					// I. We print the message
+					System.out.println("---------------\n7. Remove Item\n---------------");
+
+					// II. We ask for the user input to identify the item to be removed
+					System.out.println("Please enter the id for the item to be removed");
+					myInt = selectIntOption(sc);
+
+					// III. We attempt to remove the user
+
+					// IV. We inform of the success of the operation
+				}
+
+				case 8 -> {
 					// I. We print the message
 					System.out.println("---------------\n7. Remove Item\n---------------");
 
