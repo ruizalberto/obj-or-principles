@@ -16,6 +16,7 @@ public class MyMain {
 		System.out.print("6. Display Food Item Info\n");
 		System.out.print("7. Display Shop Food Menu\n");
 		System.out.print("8. Add Food Item\n");
+		System.out.print("9. Display All Customers\n");
 		System.out.println("");
 	}
 
@@ -266,16 +267,16 @@ public class MyMain {
 				}
 
 				case 8 -> {
-					// I. We print the message
-					System.out.println("---------------\n7. Remove Item\n---------------");
+					System.out.println("---------------\n8. Remove Item\n---------------");
 
-					// II. We ask for the user input to identify the item to be removed
 					System.out.println("Please enter the id for the item to be removed");
 					myInt = selectIntOption(sc);
 
-					// III. We attempt to remove the user
+				}
 
-					// IV. We inform of the success of the operation
+				case 9 -> {
+					System.out.println("---------------\n9. Display All Customers\n---------------");
+
 				}
             }
         }
