@@ -109,7 +109,7 @@ public class MyMain {
 
 		while (!finish){
 			printMenu();
-            option = selectOption(sc, 0, 8);
+            option = selectOption(sc, 0, 9);
             System.out.println();
 			switch (option) {
 				case 0 -> finish = true;
@@ -219,50 +219,30 @@ public class MyMain {
 				}
 
 				case 6 -> {
-					// I. We print the message
 					System.out.println("---------------\n6. Add Music Album Item\n---------------");
-
-					// II. We ask for the user input to define the item
-					System.out.println("Please enter the title for the new music album");
-					myStr = selectStringOption(sc);
-					System.out.println("Please enter the author for the new music album");
-					myStr2 = selectStringOption(sc);
-					System.out.println("Please enter the release year for the new music album");
-					myInt = selectIntOption(sc);
-					System.out.println("Please enter the genre for the new music album");
-					System.out.println("Please enter if the new music album was album of the year");
-
-					// III. We attempt to add the book
-					
-
-					// IV. We inform of the success of the operation
-					System.out.println("New music album with id " + myInt + " successfully created");
 				}
 
 				case 7 -> {
-					// I. We print the message
 					System.out.println("---------------\n7. Remove Item\n---------------");
-
-					// II. We ask for the user input to identify the item to be removed
-					System.out.println("Please enter the id for the item to be removed");
-					myInt = selectIntOption(sc);
-
-					// III. We attempt to remove the user
-
-					// IV. We inform of the success of the operation
 				}
 
 				case 8 -> {
 					System.out.println("---------------\n8. Remove Item\n---------------");
-
-					System.out.println("Please enter the id for the item to be removed");
-					myInt = selectIntOption(sc);
-
 				}
 
 				case 9 -> {
-					System.out.println("---------------\n9. Display All Customers\n---------------");
-
+					System.out.println("---------------\n9. Display All Customers Spending\n---------------");
+					for (Customer customers: buymie.getCustomerList()){
+						System.out.println("Customer ID: "+customers.getCustomerID());
+						System.out.println("Name: "+customers.getName());
+						System.out.println("Address: "+customers.getHomeAddress());
+						int totalAmount = 0;
+						for (Order orders: customers.getPastOrders()){
+							totalAmount += orders.getTotalPrice();
+						}
+						System.out.println("Total Spent: "+totalAmount);
+						System.out.println();
+					}
 				}
             }
         }
