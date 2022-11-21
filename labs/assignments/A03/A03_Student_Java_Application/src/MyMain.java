@@ -11,10 +11,11 @@ public class MyMain {
 		System.out.print("1. Add Customer\n");
 		System.out.print("2. Display Customer Order History\n");
 		System.out.print("3. Create New Order\n");
-		System.out.print("4. Remove Food Item\n");
-		System.out.print("5. Display Food Item Info\n");
-		System.out.print("6. Display Shop Food Menu\n");
-		System.out.print("7. Add Food Item\n");
+		System.out.print("4. Complete Order\n");
+		System.out.print("5. Remove Food Item\n");
+		System.out.print("6. Display Food Item Info\n");
+		System.out.print("7. Display Shop Food Menu\n");
+		System.out.print("8. Add Food Item\n");
 		System.out.println("");
 	}
 
@@ -158,7 +159,6 @@ public class MyMain {
                         if (customers.getName().equals(myStr)){
                             System.out.println();
                             System.out.println("Customer found!");
-                            System.out.println();
                             found = true;
                             newOrder = new Order(customers.getCustomerID(), new ArrayList<Food>());
                             break;
@@ -178,7 +178,7 @@ public class MyMain {
                                 myInt = selectIntOption(sc);
                             }
                             if (myInt != 0){
-                                System.out.print("Select quantity for " + menu.getMenu().get(myInt-1)+ ": ");
+                                System.out.print("Select quantity for " + menu.getMenu().get(myInt-1).getName()+ ": ");
                                 myInt2 = selectIntOption(sc);
                                 if (newOrder != null){
                                     Food quantityNewFood = menu.getMenu().get(myInt-1);
