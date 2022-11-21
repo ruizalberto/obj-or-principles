@@ -25,6 +25,9 @@ public class Shop {
     public ArrayList<Order> getPastOrders() {
         return this.pastOrders;
     }
+    public Menu getShopMenu() {
+        return this.shopMenu;
+    }
 
     // SET Methods
     public void setCurrentOrders(ArrayList<Order> currentOrders) {
@@ -35,6 +38,9 @@ public class Shop {
     }
     public void setPastOrders(ArrayList<Order> pastOrders) {
         this.pastOrders = pastOrders;
+    }
+    public void setShopMenu(Menu shopMenu) {
+        this.shopMenu = shopMenu;
     }
 
     // EXTRA Methods

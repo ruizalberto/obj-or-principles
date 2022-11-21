@@ -12,9 +12,9 @@ public class MyMain {
 		System.out.print("2. Display Customer Order History\n");
 		System.out.print("3. Create New Order\n");
 		System.out.print("4. Complete Order\n");
-		System.out.print("5. Remove Food Item\n");
+		System.out.print("5. Display Shop Menu\n");
 		System.out.print("6. Display Food Item Info\n");
-		System.out.print("7. Display Shop Food Menu\n");
+		System.out.print("7. Remove Food Item\n");
 		System.out.print("8. Add Food Item\n");
 		System.out.print("9. Display All Customers\n");
 		System.out.println("");
@@ -159,6 +159,7 @@ public class MyMain {
                     Food fish = new Food("Hake Fillets", 5);
                     menu.addFood(meat);
                     menu.addFood(fish);
+					buymie.setShopMenu(menu);
 
 					myStr = enterName(sc);
 
@@ -168,19 +169,19 @@ public class MyMain {
 						newOrder = new Order(customerFound.getCustomerID(), new ArrayList<Food>());
 						myInt = -1;
                         while (myInt!=0){
-                            menu.displayMenu();
+							buymie.showMenu();
                             System.out.print("Select an item to be ordered (select 0 to finish): ");
                             myInt = selectIntOption(sc);
-                            while (myInt-1 >= menu.getMenu().size()){
+                            while (myInt-1 >= buymie.getShopMenu().getMenu().size()){
                                 System.out.println("Wrong value!");
                                 System.out.print("Select an item to be ordered (select 0 to finish): ");
                                 myInt = selectIntOption(sc);
                             }
                             if (myInt != 0){
-                                System.out.print("Select quantity for " + menu.getMenu().get(myInt-1).getName()+ ": ");
+                                System.out.print("Select quantity for " + buymie.getShopMenu().getMenu().get(myInt-1).getName()+ ": ");
                                 myInt2 = selectIntOption(sc);
                                 if (newOrder != null){
-                                    Food quantityNewFood = menu.getMenu().get(myInt-1);
+                                    Food quantityNewFood = buymie.getShopMenu().getMenu().get(myInt-1);
                                     quantityNewFood.setQuantity(myInt2);
                                     newOrder.addFood(quantityNewFood);
                                 }
@@ -213,23 +214,8 @@ public class MyMain {
 				}
 
 				case 5 -> {
-					// I. We print the message
-					System.out.println("---------------\n5. Add Book Item\n---------------");
-
-					// II. We ask for the user input to define the item
-					System.out.println("Please enter the title for the new book");
-					myStr = selectStringOption(sc);
-					System.out.println("Please enter the author for the new book");
-					myStr2 = selectStringOption(sc);
-					System.out.println("Please enter the release year for the new book");
-					myInt = selectIntOption(sc);
-					System.out.println("Please enter the genre for the new book");
-					System.out.println("Please enter the number of pages for the new book");
-
-					// III. We attempt to add the book
-
-					// IV. We inform of the success of the operation
-					System.out.println("New book with id " + myInt + " successfully created");
+					System.out.println("---------------\n5. Display Shop Menu\n---------------");
+					buymie.showMenu();
 				}
 
 				case 6 -> {
