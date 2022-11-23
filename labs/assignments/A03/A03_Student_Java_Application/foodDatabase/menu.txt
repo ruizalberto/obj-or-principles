@@ -1,2 +1,5 @@
-Hake Fillets,56
-Sirloin Steak,20
+Hake Fillets,2.99
+Sirloin Steak,7.99
+Medium 18 Eggs,3.49
+4 Irish Beef Quarter Pounders,3.49
+Irish Light Milk 1%,2.29
