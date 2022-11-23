@@ -141,7 +141,7 @@ public class MyMain {
 
 		while (!finish){
 			printMenu();
-            option = selectOption(sc, 0, 9);
+            option = selectOption(sc, 0, 8);
             System.out.println();
 			switch (option) {
 				case 0 -> finish = true;
@@ -165,6 +165,7 @@ public class MyMain {
 
 					Customer customerFound = findCustomer(buymie, myStr);
 					if (customerFound != null){
+						boolean existsPastOrders = false;
 						for (Order pastOrders: customerFound.getPastOrders()){
 							System.out.println();
 							System.out.println("----"+myStr+"'s Order----");
@@ -176,7 +177,11 @@ public class MyMain {
 								counter++;
 							}
 							System.out.println();
-                        	System.out.println("Total Amount of the Order: "+pastOrders.getTotalPrice()+"€");
+							System.out.println("Total Amount of the Order: "+pastOrders.getTotalPrice()+"€");
+							existsPastOrders = true;
+						}
+						if (!existsPastOrders){
+							System.out.println("There is no order history for this customer.");
 						}
 					} else {
 						System.out.println("Sorry, no customer is registered with name = "+myStr);
