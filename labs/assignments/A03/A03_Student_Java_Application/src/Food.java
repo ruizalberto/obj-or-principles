@@ -6,11 +6,11 @@ public class Food {
     private String foodID,
     name;
     private LocalDate bestBefore;
-    private int price,
-    quantity;
+    private double price;
+    private int quantity;
     
     // Constructors
-    public Food(String _name, int _price){
+    public Food(String _name, double _price){
         this.name = _name;
         this.foodID = UUID.randomUUID().toString();
         this.bestBefore = java.time.LocalDate.now().plusDays(7);
@@ -27,7 +27,7 @@ public class Food {
     public String getFoodID() {
         return this.foodID;
     }
-    public int getPrice() {
+    public double getPrice() {
         return this.price;
     }
     public int getQuantity() {
