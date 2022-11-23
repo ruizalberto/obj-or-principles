@@ -17,10 +17,9 @@ public class MyMain {
 		System.out.print("3. Create New Order\n");
 		System.out.print("4. Complete Order\n");
 		System.out.print("5. Display Shop Menu\n");
-		System.out.print("6. Display Food Item Info\n");
+		System.out.print("6. Add Food Item\n");
 		System.out.print("7. Remove Food Item\n");
-		System.out.print("8. Add Food Item\n");
-		System.out.print("9. Display All Customers\n");
+		System.out.print("8. Display All Customers Spending\n");
 		System.out.println("");
 	}
 
@@ -257,10 +256,6 @@ public class MyMain {
 				}
 
 				case 8 -> {
-					System.out.println("---------------\n8. Remove Item\n---------------");
-				}
-
-				case 9 -> {
 					System.out.println("---------------\n9. Display All Customers Spending\n---------------");
 					for (Customer customers: buymie.getCustomerList()){
 						System.out.println("Customer ID: "+customers.getCustomerID());
