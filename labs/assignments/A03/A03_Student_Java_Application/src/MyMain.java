@@ -187,13 +187,6 @@ public class MyMain {
 				case 3 -> {
 					System.out.println("---------------\n3. Create New Order\n---------------");
 
-					Menu menu = new Menu();
-                    Food meat = new Food("Sirloin Steak", 5);
-                    Food fish = new Food("Hake Fillets", 5);
-                    menu.addFood(meat);
-                    menu.addFood(fish);
-					buymie.setShopMenu(menu);
-
 					myStr = enterName(sc);
 
 					Order newOrder = null;
