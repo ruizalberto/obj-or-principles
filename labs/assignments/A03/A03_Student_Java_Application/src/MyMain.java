@@ -100,7 +100,7 @@ public class MyMain {
 	}
 
 	private static void writeFoodMenu(Shop buymie){
-		String foodLocation = "/Users/aruiz/Desktop/Code/obj-or-principles/labs/assignments/A03/A03_Student_Java_Application/foodDatabase/menu.txt";
+		String foodLocation = "./labs/assignments/A03/A03_Student_Java_Application/foodDatabase/menu.txt";
 		String line = null;
 		Menu menu = buymie.getShopMenu();
 	
