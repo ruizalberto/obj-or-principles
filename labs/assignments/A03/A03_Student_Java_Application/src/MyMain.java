@@ -257,11 +257,11 @@ public class MyMain {
 				}
 
 				case 6 -> {
-					System.out.println("---------------\n6. Add Music Album Item\n---------------");
+					System.out.println("---------------\n6. Add Food Item\n---------------");
 				}
 
 				case 7 -> {
-					System.out.println("---------------\n7. Remove Item\n---------------");
+					System.out.println("---------------\n7. Remove Food Item\n---------------");
 				}
 
 				case 8 -> {
