@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -95,8 +99,37 @@ public class MyMain {
 		return selectStringOption(sc);
 	}
 
+	private static void writeFoodMenu(Shop buymie){
+		String foodLocation = "/Users/aruiz/Desktop/Code/obj-or-principles/labs/assignments/A03/A03_Student_Java_Application/foodDatabase/menu.txt";
+		String line = null;
+		Menu menu = buymie.getShopMenu();
+	
+		try {
+			FileReader fileReader = new FileReader(foodLocation);
+			
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+	
+			while((line = bufferedReader.readLine()) != null) {
+				String[] arrSplit = line.split(",");
+				double price = Double.parseDouble(arrSplit[1]);
+				Food addFood = new Food(arrSplit[0], price);
+				menu.addFood(addFood);
+			} 
+	
+			bufferedReader.close();         
+		}
+		catch(FileNotFoundException ex) {
+			System.out.println("Unable to open file '" + foodLocation + "'");                
+		}
+		catch(IOException ex) {
+			System.out.println("Error reading file '" + foodLocation + "'");
+		  }
+
+	}
+
     public static void interactiveMenu() {
         Shop buymie = new Shop();
+		writeFoodMenu(buymie);
 
 		boolean finish = false;
 		int option;
