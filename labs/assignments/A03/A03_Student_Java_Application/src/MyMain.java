@@ -238,9 +238,13 @@ public class MyMain {
 					Customer customerFound = findCustomer(buymie, myStr);
 					if (customerFound != null){
 						Order orderCompleted = customerFound.getCurrentOrder();
-						System.out.println(myStr+"'s Order Completed. Order ID: "+orderCompleted.getOrderID());
-						customerFound.orderCompleted(orderCompleted);
-						buymie.orderCompleted(orderCompleted);
+						if (orderCompleted != null){
+							System.out.println(myStr+"'s Order Completed. Order ID: "+orderCompleted.getOrderID());
+							customerFound.orderCompleted(orderCompleted);
+							buymie.orderCompleted(orderCompleted);
+						} else {
+							System.out.println("This customer doesn't have a current order.");
+						}
 					} else {
 						System.out.println();
 						System.out.println("Sorry, no customer is registered with name = "+myStr);
