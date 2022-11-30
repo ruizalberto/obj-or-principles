@@ -24,7 +24,6 @@ public class MyMain {
 	}
 
     public static int selectOption(Scanner sc, int min, int max){
-
 		int res = -1;
 		boolean validOption = false;
 		while (!validOption) {
@@ -258,6 +257,13 @@ public class MyMain {
 
 				case 6 -> {
 					System.out.println("---------------\n6. Add Food Item\n---------------");
+					System.out.print("Please enter the name for the new food item: ");
+					myStr = selectStringOption(sc);
+					System.out.print("Please select the price for the new food item: ");
+					Double price = sc.nextDouble();
+
+					Food addFood = new Food(myStr, price);
+					buymie.getShopMenu().addFood(addFood);
 				}
 
 				case 7 -> {
