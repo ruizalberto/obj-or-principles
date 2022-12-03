@@ -13,13 +13,14 @@ public class MyMain {
 		System.out.print("----------------\n");
 		System.out.print("0. Exit\n");
 		System.out.print("1. Add Customer\n");
-		System.out.print("2. Display Customer Order History\n");
-		System.out.print("3. Create New Order\n");
-		System.out.print("4. Complete Order\n");
-		System.out.print("5. Display Shop Menu\n");
-		System.out.print("6. Add Food Item\n");
-		System.out.print("7. Remove Food Item\n");
-		System.out.print("8. Display All Customers Spending\n");
+		System.out.print("2. Add Customer\n");
+		System.out.print("3. Display Customer Order History\n");
+		System.out.print("4. Create New Order\n");
+		System.out.print("5. Complete Order\n");
+		System.out.print("6. Display Shop Menu\n");
+		System.out.print("7. Add Food Item\n");
+		System.out.print("8. Remove Food Item\n");
+		System.out.print("9. Display All Customers Spending\n");
 		System.out.println("");
 	}
 
