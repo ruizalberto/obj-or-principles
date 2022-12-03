@@ -52,8 +52,16 @@ public class Shop {
         this.customerList.add(_addCustomer);
     }
 
-    public void removeCustomer(Customer _addCustomer){
-        this.customerList.remove(_addCustomer);
+    public void removeCustomer(String name){
+        int index = 0;
+        for (int i = 0; i<this.customerList.size(); i++){
+            if (this.customerList.get(i).getName().equals(name)){
+                index = i;
+                break;
+            }
+        }
+        this.customerList.remove(index);
+        System.out.println("Successfully removed!");
     }
 
     public void orderCompleted(Order _orderCompleted){

@@ -13,7 +13,7 @@ public class MyMain {
 		System.out.print("----------------\n");
 		System.out.print("0. Exit\n");
 		System.out.print("1. Add Customer\n");
-		System.out.print("2. Add Customer\n");
+		System.out.print("2. Remove Customer\n");
 		System.out.print("3. Display Customer Order History\n");
 		System.out.print("4. Create New Order\n");
 		System.out.print("5. Complete Order\n");
@@ -141,7 +141,7 @@ public class MyMain {
 
 		while (!finish){
 			printMenu();
-            option = selectOption(sc, 0, 8);
+            option = selectOption(sc, 0, 9);
             System.out.println();
 			switch (option) {
 				case 0 -> finish = true;
@@ -159,7 +159,15 @@ public class MyMain {
 				}
 
 				case 2 -> {
-					System.out.println("---------------\n2. Display Customer Order History\n---------------");
+					System.out.println("---------------\n2. Remove Customer\n---------------");
+
+					myStr = enterName(sc);
+
+					buymie.removeCustomer(myStr);
+				}
+
+				case 3 -> {
+					System.out.println("---------------\n3. Display Customer Order History\n---------------");
 
 					myStr = enterName(sc);
 
@@ -188,8 +196,8 @@ public class MyMain {
 					}
 				}
 
-				case 3 -> {
-					System.out.println("---------------\n3. Create New Order\n---------------");
+				case 4 -> {
+					System.out.println("---------------\n4. Create New Order\n---------------");
 
 					myStr = enterName(sc);
 
@@ -231,8 +239,8 @@ public class MyMain {
 					}
 				}
 
-				case 4 -> {
-					System.out.println("---------------\n4. Complete Order\n---------------");
+				case 5 -> {
+					System.out.println("---------------\n5. Complete Order\n---------------");
 
 					myStr = enterName(sc);
 					Customer customerFound = findCustomer(buymie, myStr);
@@ -251,13 +259,13 @@ public class MyMain {
 					}
 				}
 
-				case 5 -> {
-					System.out.println("---------------\n5. Display Shop Menu\n---------------");
+				case 6 -> {
+					System.out.println("---------------\n6. Display Shop Menu\n---------------");
 					buymie.showMenu();
 				}
 
-				case 6 -> {
-					System.out.println("---------------\n6. Add Food Item\n---------------");
+				case 7 -> {
+					System.out.println("---------------\n7. Add Food Item\n---------------");
 					System.out.print("Please enter the name for the new food item: ");
 					myStr = selectStringOption(sc);
 					System.out.print("Please select the price for the new food item: ");
@@ -267,11 +275,11 @@ public class MyMain {
 					buymie.getShopMenu().addFood(addFood);
 				}
 
-				case 7 -> {
-					System.out.println("---------------\n7. Remove Food Item\n---------------");
+				case 8 -> {
+					System.out.println("---------------\n8. Remove Food Item\n---------------");
 				}
 
-				case 8 -> {
+				case 9 -> {
 					System.out.println("---------------\n9. Display All Customers Spending\n---------------");
 					for (Customer customers: buymie.getCustomerList()){
 						System.out.println("Customer ID: "+customers.getCustomerID());
