@@ -83,7 +83,7 @@ public class MyMain {
 		return res;
 	}
 
-	private static Customer findCustomer(Shop buymie, String myStr){
+	private static Customer findCustomer(ShopInt buymie, String myStr){
 		for (Customer customers: buymie.getCustomerList()){
 			if (customers.getName().equals(myStr)){
 				System.out.println();
@@ -99,7 +99,7 @@ public class MyMain {
 		return selectStringOption(sc);
 	}
 
-	private static void writeFoodMenu(Shop buymie){
+	private static void writeFoodMenu(ShopInt buymie){
 		String foodLocation = "./labs/assignments/A03/A03_Student_Java_Application/foodDatabase/menu.txt";
 		String line = null;
 		ArrayList<Food> menu = buymie.getMenu();
@@ -128,7 +128,7 @@ public class MyMain {
 	}
 
     public static void interactiveMenu() {
-        Shop buymie = new Shop();
+        ShopInt buymie = new Shop();
 		writeFoodMenu(buymie);
 
 		boolean finish = false;
