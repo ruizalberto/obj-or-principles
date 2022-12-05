@@ -23,11 +23,13 @@ public class Menu {
     public void displayMenu(){
         System.out.println();
         System.out.println(java.time.LocalDate.now().toString()+"'s Menu");
+        int counter = 1;
         for(Food item: this.menu){
-            System.out.println("--- "+item.getName()+" ---");
+            System.out.println("--- "+counter+". "+item.getName()+" ---");
             System.out.print("Price: ");
             System.out.println(item.getPrice());
             System.out.println();
+            counter++;
         }
     }
 }
