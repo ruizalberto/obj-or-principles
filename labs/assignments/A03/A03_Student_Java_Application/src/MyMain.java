@@ -20,7 +20,8 @@ public class MyMain {
 		System.out.print("6. Display Shop Menu\n");
 		System.out.print("7. Add Food Item\n");
 		System.out.print("8. Remove Food Item\n");
-		System.out.print("9. Display All Customers Spending\n");
+		System.out.print("9. Display All Customers List\n");
+		System.out.print("10. Display All Customers Spending\n");
 		System.out.println("");
 	}
 
@@ -141,7 +142,7 @@ public class MyMain {
 
 		while (!finish){
 			printMenu();
-            option = selectOption(sc, 0, 9);
+            option = selectOption(sc, 0, 10);
             System.out.println();
 			switch (option) {
 				case 0 -> finish = true;
@@ -289,6 +290,16 @@ public class MyMain {
 				}
 
 				case 9 -> {
+					System.out.println("---------------\n9. Display All Customers List\n---------------");
+					for (Customer customers: buymie.getCustomerList()){
+						System.out.println("Customer ID: "+customers.getCustomerID());
+						System.out.println("Name: "+customers.getName());
+						System.out.println("Address: "+customers.getHomeAddress());
+						System.out.println();
+					}
+				}
+
+				case 10 -> {
 					System.out.println("---------------\n9. Display All Customers Spending\n---------------");
 					for (Customer customers: buymie.getCustomerList()){
 						System.out.println("Customer ID: "+customers.getCustomerID());
