@@ -293,15 +293,14 @@ public class MyMain {
 					System.out.println("---------------\n9. Display All Customers List\n---------------");
 					for (Customer customers: buymie.getCustomerList()){
 						System.out.println(customers.toString());
+						System.out.println();
 					}
 				}
 
 				case 10 -> {
 					System.out.println("---------------\n10. Display All Customers Spending\n---------------");
 					for (Customer customers: buymie.getCustomerList()){
-						System.out.println("Customer ID: "+customers.getCustomerID());
-						System.out.println("Name: "+customers.getName());
-						System.out.println("Address: "+customers.getHomeAddress());
+						System.out.println(customers.toString());
 						int totalAmount = 0;
 						for (Order orders: customers.getPastOrders()){
 							totalAmount += orders.getTotalPrice();
