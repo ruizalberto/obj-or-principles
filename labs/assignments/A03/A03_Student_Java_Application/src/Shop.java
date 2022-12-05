@@ -61,5 +61,18 @@ public class Shop extends Menu{
         this.pastOrders.add(_orderCompleted);
         this.currentOrders.remove(_orderCompleted);
     }
-    
+
+    @Override
+    public void displayMenu() {
+        System.out.println();
+        System.out.println(java.time.LocalDate.now().toString()+"'s Menu");
+        int counter = 1;
+        for(Food item: this.getMenu()){
+            System.out.println("--- "+counter+". "+item.getName()+" ---");
+            System.out.print("Price: ");
+            System.out.println(item.getPrice());
+            System.out.println();
+            counter++;
+        }
+    }
 }
