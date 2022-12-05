@@ -101,7 +101,7 @@ public class MyMain {
 	private static void writeFoodMenu(Shop buymie){
 		String foodLocation = "./labs/assignments/A03/A03_Student_Java_Application/foodDatabase/menu.txt";
 		String line = null;
-		Menu menu = buymie.getShopMenu();
+		ArrayList<Food> menu = buymie.getMenu();
 	
 		try {
 			FileReader fileReader = new FileReader(foodLocation);
@@ -112,7 +112,7 @@ public class MyMain {
 				String[] arrSplit = line.split(",");
 				double price = Double.parseDouble(arrSplit[1]);
 				Food addFood = new Food(arrSplit[0], price);
-				menu.addFood(addFood);
+				menu.add(addFood);
 			} 
 	
 			bufferedReader.close();         
@@ -208,19 +208,19 @@ public class MyMain {
 							newOrder = new Order(customerFound.getCustomerID(), new ArrayList<Food>());
 							myInt = -1;
 							while (myInt!=0){
-								buymie.showMenu();
+								buymie.displayMenu();
 								System.out.print("Select an item to be ordered (select 0 to finish): ");
 								myInt = selectIntOption(sc);
-								while (myInt-1 >= buymie.getShopMenu().getMenu().size()){
+								while (myInt-1 >= buymie.getMenu().size()){
 									System.out.println("Wrong value!");
 									System.out.print("Select an item to be ordered (select 0 to finish): ");
 									myInt = selectIntOption(sc);
 								}
 								if (myInt != 0){
-									System.out.print("Select quantity for " + buymie.getShopMenu().getMenu().get(myInt-1).getName()+ ": ");
+									System.out.print("Select quantity for " + buymie.getMenu().get(myInt-1).getName()+ ": ");
 									myInt2 = selectIntOption(sc);
 									if (newOrder != null){
-										Food quantityNewFood = buymie.getShopMenu().getMenu().get(myInt-1);
+										Food quantityNewFood = buymie.getMenu().get(myInt-1);
 										quantityNewFood.setQuantity(myInt2);
 										newOrder.addFood(quantityNewFood);
 									}
@@ -261,7 +261,7 @@ public class MyMain {
 
 				case 6 -> {
 					System.out.println("---------------\n6. Display Shop Menu\n---------------");
-					buymie.showMenu();
+					buymie.displayMenu();
 				}
 
 				case 7 -> {
@@ -272,7 +272,7 @@ public class MyMain {
 					Double price = sc.nextDouble();
 
 					Food addFood = new Food(myStr, price);
-					buymie.getShopMenu().addFood(addFood);
+					buymie.getMenu().add(addFood);
 				}
 
 				case 8 -> {

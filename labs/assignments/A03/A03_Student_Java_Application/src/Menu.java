@@ -30,7 +30,4 @@ public class Menu {
             System.out.println();
         }
     }
-    public void addFood(Food _food){
-        this.menu.add(_food);
-    }
 }

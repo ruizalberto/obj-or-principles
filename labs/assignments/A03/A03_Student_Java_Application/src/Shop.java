@@ -1,18 +1,17 @@
 import java.util.ArrayList;
 
-public class Shop {
+public class Shop extends Menu{
     // Fields
     private ArrayList<Order> currentOrders;
     private ArrayList<Order> pastOrders;
     private ArrayList<Customer> customerList;
-    private Menu shopMenu;
 
     // Constructors
     public Shop(){
+        super();
         this.currentOrders = new ArrayList<Order>();
         this.pastOrders = new ArrayList<Order>();
         this.customerList = new ArrayList<Customer>();
-        this.shopMenu = new Menu();
     }
 
     // GET Methods
@@ -25,9 +24,6 @@ public class Shop {
     public ArrayList<Order> getPastOrders() {
         return this.pastOrders;
     }
-    public Menu getShopMenu() {
-        return this.shopMenu;
-    }
 
     // SET Methods
     public void setCurrentOrders(ArrayList<Order> currentOrders) {
@@ -38,9 +34,6 @@ public class Shop {
     }
     public void setPastOrders(ArrayList<Order> pastOrders) {
         this.pastOrders = pastOrders;
-    }
-    public void setShopMenu(Menu shopMenu) {
-        this.shopMenu = shopMenu;
     }
 
     // EXTRA Methods
@@ -68,8 +61,5 @@ public class Shop {
         this.pastOrders.add(_orderCompleted);
         this.currentOrders.remove(_orderCompleted);
     }
-
-    public void showMenu(){
-        this.shopMenu.displayMenu();
-    }
+    
 }
