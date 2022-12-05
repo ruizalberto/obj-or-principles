@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Shop extends Menu{
+public class Shop extends Menu implements ShopInt{
     // Fields
     private ArrayList<Order> currentOrders;
     private ArrayList<Order> pastOrders;
@@ -63,7 +63,7 @@ public class Shop extends Menu{
     }
 
     @Override
-    public void displayMenu() {
+    public void displayMenu(){
         System.out.println();
         System.out.println(java.time.LocalDate.now().toString()+"'s Menu");
         int counter = 1;
