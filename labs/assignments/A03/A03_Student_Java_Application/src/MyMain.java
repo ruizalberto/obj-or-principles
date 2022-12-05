@@ -292,10 +292,7 @@ public class MyMain {
 				case 9 -> {
 					System.out.println("---------------\n9. Display All Customers List\n---------------");
 					for (Customer customers: buymie.getCustomerList()){
-						System.out.println("Customer ID: "+customers.getCustomerID());
-						System.out.println("Name: "+customers.getName());
-						System.out.println("Address: "+customers.getHomeAddress());
-						System.out.println();
+						System.out.println(customers.toString());
 					}
 				}
 
