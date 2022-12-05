@@ -277,6 +277,15 @@ public class MyMain {
 
 				case 8 -> {
 					System.out.println("---------------\n8. Remove Food Item\n---------------");
+					buymie.displayMenu();
+					System.out.print("Please enter the integer for the food item to be removed: ");
+					myInt = selectIntOption(sc);
+					while (myInt>buymie.getMenu().size() || myInt<=0){
+						System.out.println("Wrong number!");
+						System.out.print("Please enter the integer for the food item to be removed: ");
+						myInt = selectIntOption(sc);
+					}
+					buymie.getMenu().remove(myInt-1);
 				}
 
 				case 9 -> {
@@ -289,7 +298,7 @@ public class MyMain {
 						for (Order orders: customers.getPastOrders()){
 							totalAmount += orders.getTotalPrice();
 						}
-						System.out.println("Total Spent: "+totalAmount);
+						System.out.println("Total Spent: "+totalAmount+"€");
 						System.out.println();
 					}
 				}
