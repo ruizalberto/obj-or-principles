@@ -300,7 +300,7 @@ public class MyMain {
 				}
 
 				case 10 -> {
-					System.out.println("---------------\n9. Display All Customers Spending\n---------------");
+					System.out.println("---------------\n10. Display All Customers Spending\n---------------");
 					for (Customer customers: buymie.getCustomerList()){
 						System.out.println("Customer ID: "+customers.getCustomerID());
 						System.out.println("Name: "+customers.getName());
