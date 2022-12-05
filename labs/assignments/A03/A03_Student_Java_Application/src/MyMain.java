@@ -25,7 +25,7 @@ public class MyMain {
 		System.out.println("");
 	}
 
-    public static int selectOption(Scanner sc, int min, int max){
+    public static int selectIntOption(Scanner sc, int min, int max){
 		int res = -1;
 		boolean validOption = false;
 		while (!validOption) {
@@ -142,7 +142,7 @@ public class MyMain {
 
 		while (!finish){
 			printMenu();
-            option = selectOption(sc, 0, 10);
+            option = selectIntOption(sc, 0, 10);
             System.out.println();
 			switch (option) {
 				case 0 -> finish = true;
