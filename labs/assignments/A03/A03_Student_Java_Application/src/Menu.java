@@ -10,7 +10,7 @@ public abstract class Menu {
     }
 
     // GET Methods
-    public ArrayList<Food> getMenu() {
+    public final ArrayList<Food> getMenu() {
         return this.menu;
     }
 
