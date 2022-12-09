@@ -122,6 +122,7 @@ public class Customer {
     //	EXTRA METHODS
     //---------------------------------------
     /** 
+     * This method changes status of order from current to past.<br>
      * @param _orderCompleted
      */
     public void orderCompleted(Order _orderCompleted){
@@ -130,8 +131,11 @@ public class Customer {
     }
 
     
-    /** 
-     * @return String
+    //---------------------------------------
+    //	toString
+    //---------------------------------------
+    /**
+     * Given a concrete customer (this), the function overrides the method toString.<br>
      */
     @Override
     public String toString() {
