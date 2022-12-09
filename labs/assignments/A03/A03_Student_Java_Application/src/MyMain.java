@@ -70,12 +70,12 @@ public class MyMain {
 		while (!validOption) {
 			try {
 				res = sc.nextLine();
-				if ((res.length() > 0) && (res.charAt(0) >= 'A') && (res.charAt(0) <= 'Z'))
+				if ((res.length() > 0)){
 					validOption = true;
-				else
-					System.out.println("Sorry but the option must be a non-empty string starting by a capital letter");
-			}
-			catch (Exception e) {
+				} else {
+					System.out.println("Sorry but the option must be a non-empty string");
+				}
+			} catch (Exception e) {
 				System.out.println("Sorry you did not enter a String and then press the return key");
 				sc.next();
 			}
@@ -106,7 +106,6 @@ public class MyMain {
 	
 		try {
 			FileReader fileReader = new FileReader(foodLocation);
-			
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 	
 			while((line = bufferedReader.readLine()) != null) {
@@ -117,13 +116,11 @@ public class MyMain {
 			} 
 	
 			bufferedReader.close();         
-		}
-		catch(FileNotFoundException ex) {
+		} catch(FileNotFoundException ex) {
 			System.out.println("Unable to open file '" + foodLocation + "'");                
-		}
-		catch(IOException ex) {
+		} catch(IOException ex) {
 			System.out.println("Error reading file '" + foodLocation + "'");
-		  }
+		}
 
 	}
 
