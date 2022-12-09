@@ -38,8 +38,7 @@ public class MyMain {
                 } else {
 					System.out.println("Sorry but the option must be within the range " + min + " and " + max);
                 }
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				System.out.println("Sorry you did not enter an integer and then press the return key");
 				sc.next();
 			}
@@ -55,8 +54,7 @@ public class MyMain {
 				res = sc.nextInt();
 				sc.nextLine();
 				validOption = true;
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				System.out.println("Sorry you did not enter an integer and then press the return key");
 				sc.next();
 			}
