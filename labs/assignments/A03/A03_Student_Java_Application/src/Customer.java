@@ -1,22 +1,37 @@
+//--------------------------------------------------
+//	IMPORTS
+//--------------------------------------------------
+
 import java.util.ArrayList;
 import java.util.UUID;
 
+//--------------------------------------------------
+//
+//	CLASS Customer
+//
+//--------------------------------------------------
+/**
+ * This class models a customer of the shop<br>.
+ */
 public class Customer {
-    // Fields
+
+    //---------------------------------------
+    //	Fields
+    //---------------------------------------
     private String name,
     homeAddress,
     customerID;
     private Order currentOrder;
     private ArrayList<Order> pastOrders;
 
-    // Constructors
-    public Customer(){
-        this.name = null;
-        this.homeAddress = null;
-        this.customerID = null;
-        this.currentOrder = null;
-        this.pastOrders = null;
-    }
+    //---------------------------------------
+    //	Constructor
+    //---------------------------------------
+    /**
+     * The constructor creates 1 instance (1 object) of the class Customer<br>
+     * @param _name - The name of the customer.
+     * @param _homeAddress - The home address of the customer.
+     */
     public Customer(String _name, String _homeAddress){
         this.name = _name;
         this.homeAddress = _homeAddress;
@@ -25,53 +40,62 @@ public class Customer {
         this.pastOrders = new ArrayList<Order>();
     }
 
-    
+     //---------------------------------------
+    //	GET METHODS
+    //---------------------------------------
     /** 
-     * @return Order
+     * Given a concrete customer (this), the function returns its current order.<br>
+     * @return The current order of a customer.
      */
-    // GET Methods
     public Order getCurrentOrder() {
         return this.currentOrder;
     }
     
     /** 
-     * @return String
+     * Given a concrete customer (this), the function returns its home address.<br>
+     * @return The home address of a customer.
      */
     public String getHomeAddress() {
         return this.homeAddress;
     }
     
     /** 
-     * @return String
+     * Given a concrete customer (this), the function returns its ID.<br>
+     * @return The ID of a customer.
      */
     public String getCustomerID() {
         return this.customerID;
     }
     
     /** 
-     * @return String
+     * Given a concrete customer (this), the function returns its name.<br>
+     * @return The name of a customer.
      */
     public String getName() {
         return this.name;
     }
     
     /** 
-     * @return ArrayList<Order>
+     * Given a concrete customer (this), the function returns its past orders.<br>
+     * @return The past orders of a customer.
      */
     public ArrayList<Order> getPastOrders() {
         return this.pastOrders;
     }
 
-    
+    //---------------------------------------
+    //	SET METHODS
+    //---------------------------------------
     /** 
+     * Given a concrete customer (this), the function updates its current order object.<br>
      * @param currentOrder
      */
-    // SET Methods
     public void setCurrentOrder(Order currentOrder) {
         this.currentOrder = currentOrder;
     }
     
     /** 
+     * Given a concrete customer (this), the function updates its home address.<br>
      * @param homeAddress
      */
     public void setHomeAddress(String homeAddress) {
@@ -79,6 +103,7 @@ public class Customer {
     }
     
     /** 
+     * Given a concrete customer (this), the function updates its name.<br>
      * @param name
      */
     public void setName(String name) {
@@ -86,17 +111,19 @@ public class Customer {
     }
     
     /** 
+     * Given a concrete customer (this), the function updates its past orders.<br>
      * @param pastOrders
      */
     public void setPastOrders(ArrayList<Order> pastOrders) {
         this.pastOrders = pastOrders;
     }
 
-    
+    //---------------------------------------
+    //	EXTRA METHODS
+    //---------------------------------------
     /** 
      * @param _orderCompleted
      */
-    // EXTRA Methods
     public void orderCompleted(Order _orderCompleted){
         this.currentOrder = null;
         this.pastOrders.add(_orderCompleted);
