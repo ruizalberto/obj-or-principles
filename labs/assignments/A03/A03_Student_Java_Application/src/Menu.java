@@ -5,7 +5,7 @@ public abstract class Menu {
     private ArrayList<Food> menu;
 
     /**
-     * 
+     * The constructor creates 1 instance (1 object) of the class Menu<br>
      */
     public Menu(){
         this.menu = new ArrayList<Food>();
