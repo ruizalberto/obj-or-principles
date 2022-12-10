@@ -51,36 +51,42 @@ public class Food {
     }
     
     /** 
-     * @return LocalDate
+     * Given a concrete food (this), the function returns its best before date.<br>
+     * @return The best before date of the food.
      */
     public LocalDate getBestBefore() {
         return this.bestBefore;
     }
     
-    /** 
-     * @return String
+    /**  
+     * Given a concrete food (this), the function returns its ID.<br>
+     * @return The ID of the food.
      */
     public String getFoodID() {
         return this.foodID;
     }
     
     /** 
-     * @return double
+     * Given a concrete food (this), the function returns its price.<br>
+     * @return The price of the food.
      */
     public double getPrice() {
         return this.price;
     }
     
     /** 
-     * @return int
+     * Given a concrete food (this), the function returns its quantity.<br>
+     * @return The quantity of the food.
      */
     public int getQuantity() {
         return this.quantity;
     }
 
-
-    
+    //---------------------------------------
+    //	SET METHODS
+    //---------------------------------------
     /** 
+     * Given a concrete food (this), the function updates its name.<br>
      * @param name
      */
     public void setName(String name) {
@@ -88,6 +94,7 @@ public class Food {
     }
     
     /** 
+     * Given a concrete food (this), the function updates its best before date.<br>
      * @param bestBefore
      */
     public void setBestBefore(LocalDate bestBefore) {
@@ -95,6 +102,7 @@ public class Food {
     }
     
     /** 
+     * Given a concrete food (this), the function updates its ID.<br>
      * @param foodID
      */
     public void setFoodID(String foodID) {
@@ -102,6 +110,7 @@ public class Food {
     }
     
     /** 
+     * Given a concrete food (this), the function updates its price.<br>
      * @param price
      */
     public void setPrice(int price) {
@@ -109,6 +118,7 @@ public class Food {
     }
     
     /** 
+     * Given a concrete food (this), the function updates its quantity.<br>
      * @param quantity
      */
     public void setQuantity(int quantity) {
