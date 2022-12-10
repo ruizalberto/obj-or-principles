@@ -10,7 +10,8 @@ import java.util.ArrayList;
 //
 //--------------------------------------------------
 /**
- * This class models a grocery shop<br>.
+ * This class implements the interface ShopInt of the A03 Project of Alberto Ruiz,
+ * representing the management of a grocery online shop.<br>
  */
 public class Shop extends Menu implements ShopInt{
     
@@ -41,7 +42,6 @@ public class Shop extends Menu implements ShopInt{
      * Given a concrete shop (this), the function returns its current orders.<br>
      * @return The current orders of the shop.
      */
-    // GET Methods
     public ArrayList<Order> getCurrentOrders() {
         return this.currentOrders;
     }
