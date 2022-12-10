@@ -1,3 +1,7 @@
+//--------------------------------------------------
+//	IMPORTS
+//--------------------------------------------------
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -5,7 +9,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//--------------------------------------------------
+//
+//	CLASS MyMain
+//
+//--------------------------------------------------
+/**
+ * This is the main class for the A03 Project of Alberto Ruiz,
+ * representing the management of a grocery online shop<br>.
+ */
 public class MyMain {
+
+	/**
+	 * This function prints the menu by the screen to the user.<br>
+	 * "This part of code is a result of consulting MyMain.java A03 Example Java Application".<br>
+	 */
     public static void printMenu(){
         System.out.println();
 		System.out.print("----------------\n");
@@ -25,7 +43,16 @@ public class MyMain {
 		System.out.println("");
 	}
 
-    public static int selectIntOption(Scanner sc, int min, int max){
+    
+	/** 
+	 * This function asks the user to enter a valid integer value (within a range) by keyboard.<br>
+	 * "This part of code is a result of consulting MyMain.java A03 Example Java Application".<br>
+	 * @param sc - The scanner getting input by keyboard.
+	 * @param min - The lower bound value accepted.
+	 * @param max - THe upper bound value accepted.
+	 * @return The value entered by keyboard.
+	 */
+	public static int selectIntOption(Scanner sc, int min, int max){
 		int res = -1;
 		boolean validOption = false;
 		while (!validOption) {
@@ -46,7 +73,14 @@ public class MyMain {
 		return res;
 	}
 
-    public static int selectIntOption(Scanner sc){
+    
+	/** 
+	 * This function asks the user to enter a valid integer value by keyboard.<br>
+	 * "This part of code is a result of consulting MyMain.java A03 Example Java Application".<br>
+	 * @param sc - The scanner getting input by keyboard.
+	 * @return The value entered by keyboard.
+	 */
+	public static int selectIntOption(Scanner sc){
 		int res = -1;
 		boolean validOption = false;
 		while (!validOption) {
@@ -62,7 +96,14 @@ public class MyMain {
 		return res;
 	}
 
-    public static String selectStringOption(Scanner sc){
+    
+	/**
+	 * This function asks the user to enter a valid String value by keyboard.<br>
+	 * "This part of code is a result of consulting MyMain.java A03 Example Java Application".<br>
+	 * @param sc - The scanner getting the input value by keyboard.
+	 * @return - The value entered by keyboard.
+	 */
+	public static String selectStringOption(Scanner sc){
 		String res = "";
 		boolean validOption = false;
 		while (!validOption) {
@@ -81,6 +122,13 @@ public class MyMain {
 		return res;
 	}
 
+	
+	/** 
+	 * This function attempts to find a customer in the shop.<br>
+	 * @param buymie - The shop.
+	 * @param myStr - The name of the customer to find.
+	 * @return - The customer object if it is found; null if it is not.
+	 */
 	private static Customer findCustomer(ShopInt buymie, String myStr){
 		for (Customer customers: buymie.getCustomerList()){
 			if (customers.getName().equals(myStr)){
@@ -92,11 +140,22 @@ public class MyMain {
 		return null;
 	}
 
+	
+	/**
+	 * This function asks the user to enter a name for the customer.<br> 
+	 * @param sc - The scanner getting the input value by keyboard.
+	 * @return The name of the customer.
+	 */
 	private static String enterName(Scanner sc){
 		System.out.print("Please enter the name for the customer: ");
 		return selectStringOption(sc);
 	}
 
+	
+	/** 
+	 * This function attempts to load the file with the food to the shop menu.<br>
+	 * @param buymie - The shop.
+	 */
 	private static void writeFoodMenu(ShopInt buymie){
 		String foodLocation = "./labs/assignments/A03/A03_Student_Java_Application/foodDatabase/menu.txt";
 		String line = null;
@@ -122,6 +181,10 @@ public class MyMain {
 
 	}
 
+	/**
+	 * This function performs the interactive text-menu to the user.<br>
+	 * "This part of code is a result of consulting MyMain.java A03 Example Java Application".<br>
+	 */
     public static void interactiveMenu() {
         ShopInt buymie = new Shop();
 		writeFoodMenu(buymie);
@@ -310,7 +373,12 @@ public class MyMain {
         }
     }
 
-    public static void main(String[] args) {
+    
+	/**
+	 * This is the main entry point for the Java application.<br>
+	 * @param args - Any argument passed when calling to the Java application.
+	 */
+	public static void main(String[] args) {
         // test the functionality of the project
         interactiveMenu();
     }
