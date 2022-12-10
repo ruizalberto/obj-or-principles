@@ -18,9 +18,7 @@ public class Customer {
     //---------------------------------------
     //	Fields
     //---------------------------------------
-    private String name,
-    homeAddress,
-    customerID;
+    private String name, homeAddress, customerID;
     private Order currentOrder;
     private ArrayList<Order> pastOrders;
 
