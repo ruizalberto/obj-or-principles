@@ -11,7 +11,7 @@ import java.util.UUID;
 //
 //--------------------------------------------------
 /**
- * This class models a orrder of the shop<br>.
+ * This class models a order of the shop<br>.
  */
 public class Order {
     

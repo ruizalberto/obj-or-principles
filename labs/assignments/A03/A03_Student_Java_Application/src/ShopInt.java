@@ -52,13 +52,13 @@ public interface ShopInt{
 
      /** 
      * Given a concrete shop (this), the function returns its customer list.<br>
-     * @return ArrayList<Customer>
+     * @return The customer list of the shop.
      */
     ArrayList<Customer> getCustomerList();
 
     /** 
      * Given a concrete shop (this), the function returns its past orders.<br>
-     * @return ArrayList<Order>
+     * @return The past orders of the shop.
      */
     ArrayList<Order> getPastOrders();
 

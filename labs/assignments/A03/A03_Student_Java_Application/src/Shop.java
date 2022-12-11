@@ -11,7 +11,7 @@ import java.util.ArrayList;
 //--------------------------------------------------
 /**
  * This class implements the interface ShopInt of the A03 Project of Alberto Ruiz,
- * representing the management of a grocery online shop.<br>
+ * representing the management of a grocery online shop<br>.
  */
 public class Shop extends Menu implements ShopInt{
     
@@ -48,7 +48,7 @@ public class Shop extends Menu implements ShopInt{
     
     /** 
      * Given a concrete shop (this), the function returns its customer list.<br>
-     * @return ArrayList<Customer>
+     * @return The customer list of the shop.
      */
     public ArrayList<Customer> getCustomerList() {
         return this.customerList;
@@ -56,7 +56,7 @@ public class Shop extends Menu implements ShopInt{
     
     /** 
      * Given a concrete shop (this), the function returns its past orders.<br>
-     * @return ArrayList<Order>
+     * @return The past orders of the shop.
      */
     public ArrayList<Order> getPastOrders() {
         return this.pastOrders;
