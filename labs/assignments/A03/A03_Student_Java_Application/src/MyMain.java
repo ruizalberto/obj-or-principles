@@ -267,9 +267,9 @@ public class MyMain {
 							buymie.displayMenu();
 							System.out.print("Select an item to be ordered (select 0 to finish): ");
 							myInt = selectIntOption(sc);
+							newOrder = new Order(customerFound.getCustomerID(), new ArrayList<Food>());
 							while (myInt!=0){
 								hasAddedFood = true;
-								newOrder = new Order(customerFound.getCustomerID(), new ArrayList<Food>());
 								while (myInt-1 >= buymie.getMenu().size() || myInt<=0){
 									System.out.println("Wrong value! Select a number between 1 and "+buymie.getMenu().size());
 									System.out.print("Select an item to be ordered: ");
